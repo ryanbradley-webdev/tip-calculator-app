@@ -11,7 +11,9 @@ function App() {
 
       <section>
 
-        <div>
+        <div
+          className='inputs'
+        >
 
           <label htmlFor="bill">
 
@@ -97,7 +99,9 @@ function App() {
 
         </div>
 
-        <div>
+        <div
+          className='totals'
+        >
 
           <div>
 

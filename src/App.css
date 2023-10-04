@@ -17,3 +17,37 @@ section {
   border-top-left-radius: 25px;
   background-color: var(--clr-white-900);
 }
+
+.inputs {
+  display: grid;
+  row-gap: 32px;
+  margin-bottom: 32px;
+}
+
+input[type='text'],
+input[type='number'] {
+  height: 48px;
+  width: 100%;
+  padding-inline: 18px;
+  background-color: var(--clr-white-800);
+  border: none;
+  border-radius: 5px;
+  text-align: right;
+}
+
+.totals {
+  background-color: var(--clr-teal-100);
+  border-radius: 15px;
+}
+
+.totals h3 {
+  color: var(--clr-white-900);
+}
+
+.totals h2 {
+  color: var(--clr-teal-600);
+}
+
+.totals p {
+  color: var(--clr-teal-700);
+}
