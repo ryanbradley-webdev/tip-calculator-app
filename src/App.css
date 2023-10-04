@@ -4,6 +4,15 @@ main {
   align-items: center;
   justify-content: center;
   gap: 41px;
+  padding-top: 50px;
   min-height: 100vh;
   background-color: var(--clr-teal-900);
+}
+
+section {
+  flex-grow: 1;
+  width: 100%;
+  border-top-right-radius: 25px;
+  border-top-left-radius: 25px;
+  background-color: var(--clr-white-900);
 }
