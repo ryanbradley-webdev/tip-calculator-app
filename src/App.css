@@ -28,6 +28,30 @@ section {
   margin-bottom: 6px;
 }
 
+input {
+  font-family: inherit;
+}
+
+label[for='bill'],
+label[for='people'] {
+  position: relative;
+}
+
+label[for='bill']::before,
+label[for='people']::before {
+  position: absolute;
+  left: 18px;
+  bottom: 10px;
+}
+
+label[for='bill']::before {
+  content: url(/icon-dollar.svg)
+}
+
+label[for='people']::before {
+  content: url(/icon-person.svg)
+}
+
 .options {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
