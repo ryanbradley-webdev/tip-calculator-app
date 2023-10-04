@@ -24,6 +24,20 @@ section {
   margin-bottom: 32px;
 }
 
+.inputs > label h4 {
+  margin-bottom: 6px;
+}
+
+.options {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.options h4 {
+  grid-column: 1 / span 2;
+}
+
 input[type='text'],
 input[type='number'] {
   height: 48px;
@@ -33,6 +47,26 @@ input[type='number'] {
   border: none;
   border-radius: 5px;
   text-align: right;
+}
+
+input[type='radio'] {
+  display: none;
+}
+
+.options > label {
+  display: grid;
+  place-items: center;
+  height: 48px;
+  color: var(--clr-white-900);
+  background-color: var(--clr-teal-100);
+  font-size: 24px;
+  text-align: center;
+  border-radius: 5px;
+}
+
+.options > label:has(input:checked) {
+  color: var(--clr-teal-100);
+  background-color: var(--clr-teal-600);
 }
 
 .totals {

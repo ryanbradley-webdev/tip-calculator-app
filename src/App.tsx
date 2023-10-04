@@ -29,7 +29,9 @@ function App() {
 
           </label>
 
-          <div>
+          <div
+            className='options'
+          >
 
             <h4>
               Select Tip %
