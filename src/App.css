@@ -12,6 +12,7 @@ main {
 section {
   flex-grow: 1;
   width: 100%;
+  padding: 32px;
   border-top-right-radius: 25px;
   border-top-left-radius: 25px;
   background-color: var(--clr-white-900);
