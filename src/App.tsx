@@ -4,7 +4,10 @@ function App() {
   return (
     <main>
       
-      Hello World
+      <img
+        src='/logo.svg'
+        alt='SPLITTER'
+      />
 
     </main>
   )

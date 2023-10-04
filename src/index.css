@@ -7,3 +7,16 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+:root {
+  --clr-white-900: #FFF;
+  --clr-white-800: #F3F9FA;
+  --clr-teal-900: #C5E4E7;
+  --clr-teal-800: #9EBBBD;
+  --clr-teal-700: #7F9D9F;
+  --clr-teal-600: #26C2AE;
+}
+
+html {
+  font-family: 'Space Mono', 'Arial', sans-serif;
+}
