@@ -36,18 +36,46 @@ input[type='number'] {
 }
 
 .totals {
+  padding: 24px;
+  padding-top: 37px;
   background-color: var(--clr-teal-100);
   border-radius: 15px;
 }
 
+.totals > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
 .totals h3 {
   color: var(--clr-white-900);
+  font-size: 16px;
 }
 
 .totals h2 {
   color: var(--clr-teal-600);
+  font-size: 32px;
+  letter-spacing: -0.67px;
 }
 
 .totals p {
   color: var(--clr-teal-700);
+  font-size: 13px;
+  font-weight: bold;
+
+}
+
+.totals button {
+  height: 48px;
+  width: 100%;
+  margin-top: 12px;
+  color: var(--clr-teal-100);
+  font-size: 20px;
+  font-weight: bold;
+  background-color: var(--clr-teal-600);
+  border: none;
+  border-radius: 0;
+  font-family: inherit;
 }
