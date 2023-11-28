@@ -2,8 +2,9 @@ import { useState } from 'react'
 import './App.css'
 
 function App() {
-  const [bill, setBill] = useState('0')
+  const [bill, setBill] = useState('')
   const [tip, setTip] = useState<number | undefined>()
+  const [customTip, setCustomTip] = useState(false)
   const [people, setPeople] = useState<string>('')
 
   const inputIsNumber = (input: string) => {
@@ -37,7 +38,12 @@ function App() {
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target
+    const { name, value, id } = e.target
+
+    if (id === 'custom') {
+      setTip(0)
+      return setCustomTip(true)
+    }
 
     if (inputIsNumber(value)) {
       if (name === 'bill') {
@@ -49,6 +55,7 @@ function App() {
         setBill(newBill)
       } else if (name === 'tip') {
         setTip(Number(value))
+        setCustomTip(false)
       } else if (name === 'people') {
         setPeople(Number(value) < 0 ? '' : removePrependedZeros(value))
       }
@@ -56,8 +63,9 @@ function App() {
   }
 
   const resetForm = () => {
-    setBill('0')
+    setBill('')
     setTip(undefined)
+    setCustomTip(false)
     setPeople('')
   }
 
@@ -105,7 +113,7 @@ function App() {
                 5%
               </span>
 
-              <input type="radio" name="tip" id="five" value={0.05} onChange={handleChange} />
+              <input type="radio" name="tip" id="five" checked={tip === 0.05 && !customTip} value={0.05} onChange={handleChange} />
             </label>
             
             <label htmlFor="ten">
@@ -113,7 +121,7 @@ function App() {
                 10%
               </span>
 
-              <input type="radio" name="tip" id="ten" value={0.1} onChange={handleChange} />
+              <input type="radio" name="tip" id="ten" checked={tip === 0.1 && !customTip} value={0.1} onChange={handleChange} />
             </label>
             
             <label htmlFor="fifteen">
@@ -121,7 +129,7 @@ function App() {
                 15%
               </span>
 
-              <input type="radio" name="tip" id="fifteen" value={0.15} onChange={handleChange} />
+              <input type="radio" name="tip" id="fifteen" checked={tip === 0.15 && !customTip} value={0.15} onChange={handleChange} />
             </label>
             
             <label htmlFor="twentyfive">
@@ -129,7 +137,7 @@ function App() {
                 25%
               </span>
 
-              <input type="radio" name="tip" id="twentyfive" value={0.25} onChange={handleChange} />
+              <input type="radio" name="tip" id="twentyfive" checked={tip === 0.25 && !customTip} value={0.25} onChange={handleChange} />
             </label>
             
             <label htmlFor="fifty">
@@ -137,7 +145,7 @@ function App() {
                 50%
               </span>
 
-              <input type="radio" name="tip" id="fifty" value={0.5} onChange={handleChange} />
+              <input type="radio" name="tip" id="fifty" checked={tip === 0.5 && !customTip} value={0.5} onChange={handleChange} />
             </label>
             
             <label htmlFor="custom">
@@ -146,7 +154,7 @@ function App() {
                 Custom
               </span>
 
-              <input type="radio" name='tip' id='custom' onChange={handleChange} />
+              <input type="radio" name='tip' id='custom' checked={customTip} onChange={handleChange} />
 
             </label>
 
@@ -209,6 +217,7 @@ function App() {
           </div>
 
           <button
+            disabled={!bill && !tip && !customTip && !people}
             onClick={resetForm}
           >
             RESET

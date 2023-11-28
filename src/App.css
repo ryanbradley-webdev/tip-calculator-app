@@ -73,8 +73,18 @@ input[type='number'] {
   text-align: right;
 }
 
+input[type="text"]::placeholder,
+input[type="number"]::placeholder {
+  opacity: 0.35;
+}
+
 input[type='radio'] {
   display: none;
+}
+
+label:has(#custom) {
+  color: var(--clr-teal-600);
+  background-color: var(--clr-white-800);
 }
 
 .options > label {
@@ -83,14 +93,20 @@ input[type='radio'] {
   height: 48px;
   color: var(--clr-white-900);
   background-color: var(--clr-teal-100);
-  font-size: 24px;
   text-align: center;
   border-radius: 5px;
 }
 
+.options > label,
+input[type="text"],
+input[type="number"] {
+  font-size: 24px;
+  font-weight: bold;
+}
+
 .options > label:has(input:checked) {
   color: var(--clr-teal-100);
-  background-color: var(--clr-teal-600);
+  background-color: var(--clr-teal-500);
 }
 
 .totals {
@@ -113,7 +129,7 @@ input[type='radio'] {
 }
 
 .totals h2 {
-  color: var(--clr-teal-600);
+  color: var(--clr-teal-500);
   font-size: 32px;
   letter-spacing: -0.67px;
 }
@@ -132,8 +148,12 @@ input[type='radio'] {
   color: var(--clr-teal-100);
   font-size: 20px;
   font-weight: bold;
-  background-color: var(--clr-teal-600);
+  background-color: var(--clr-teal-500);
   border: none;
   border-radius: 5px;
   font-family: inherit;
+}
+
+.totals button:disabled {
+  opacity: 0.2;
 }
