@@ -3,13 +3,28 @@ import './App.css'
 
 function App() {
   const [bill, setBill] = useState('0')
-  const [tip, setTip] = useState<number | null>(null)
+  const [tip, setTip] = useState<number | undefined>()
 
   const inputIsNumber = (input: string) => {
     const digits = input.replace('.', '')
     const isNumber = digits.replace(/[0-9]/g, '').length === 0
-    console.log(isNumber)
     return isNumber
+  }
+
+  const formatCurrency = (value: string | number) => {
+    const valueStr = typeof value === 'number' ? value.toString() : value
+
+    const decimalIdx = valueStr.indexOf('.')
+
+    if (decimalIdx < 0) {
+      return valueStr + '.00'
+    }
+
+    if (valueStr.length === decimalIdx + 2) {
+      return valueStr + '0'
+    }
+
+    return valueStr.slice(0, decimalIdx + 3)
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -73,7 +88,7 @@ function App() {
                 5%
               </span>
 
-              <input type="radio" name="percent" id="five" />
+              <input type="radio" name="tip" id="five" value={0.05} onChange={handleChange} />
             </label>
             
             <label htmlFor="ten">
@@ -81,7 +96,7 @@ function App() {
                 10%
               </span>
 
-              <input type="radio" name="percent" id="ten" />
+              <input type="radio" name="tip" id="ten" value={0.1} onChange={handleChange} />
             </label>
             
             <label htmlFor="fifteen">
@@ -89,7 +104,7 @@ function App() {
                 15%
               </span>
 
-              <input type="radio" name="percent" id="fifteen" />
+              <input type="radio" name="tip" id="fifteen" value={0.15} onChange={handleChange} />
             </label>
             
             <label htmlFor="twentyfive">
@@ -97,7 +112,7 @@ function App() {
                 25%
               </span>
 
-              <input type="radio" name="percent" id="twentyfive" />
+              <input type="radio" name="tip" id="twentyfive" value={0.25} onChange={handleChange} />
             </label>
             
             <label htmlFor="fifty">
@@ -105,7 +120,7 @@ function App() {
                 50%
               </span>
 
-              <input type="radio" name="percent" id="fifty" />
+              <input type="radio" name="tip" id="fifty" value={0.5} onChange={handleChange} />
             </label>
             
             <label htmlFor="custom">
@@ -114,7 +129,7 @@ function App() {
                 Custom
               </span>
 
-              <input type="radio" name='percent' id='custom' />
+              <input type="radio" name='tip' id='custom' onChange={handleChange} />
 
             </label>
 
@@ -151,7 +166,7 @@ function App() {
             </div>
 
             <h2>
-              $4.27
+              ${tip ? formatCurrency(tip * Number(bill)) : '0.00'}
             </h2>
 
           </div>
