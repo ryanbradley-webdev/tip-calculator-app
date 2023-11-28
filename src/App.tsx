@@ -4,6 +4,7 @@ import './App.css'
 function App() {
   const [bill, setBill] = useState('0')
   const [tip, setTip] = useState<number | undefined>()
+  const [people, setPeople] = useState<string>('')
 
   const inputIsNumber = (input: string) => {
     const digits = input.replace('.', '')
@@ -27,6 +28,14 @@ function App() {
     return valueStr.slice(0, decimalIdx + 3)
   }
 
+  const removePrependedZeros = (value: string): string => {
+    if (value.length === 0 || value === '0' || value[0] !== '0') {
+      return value
+    }
+
+    return removePrependedZeros(value.substring(1))
+  }
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target
 
@@ -40,8 +49,16 @@ function App() {
         setBill(newBill)
       } else if (name === 'tip') {
         setTip(Number(value))
+      } else if (name === 'people') {
+        setPeople(Number(value) < 0 ? '' : removePrependedZeros(value))
       }
     }
+  }
+
+  const resetForm = () => {
+    setBill('0')
+    setTip(undefined)
+    setPeople('')
   }
 
   return (
@@ -141,7 +158,7 @@ function App() {
               Number of People
             </h4>
 
-            <input type="number" name="people" id="people" placeholder='0' />
+            <input type="number" name="people" id="people" placeholder='0' value={people} onChange={handleChange} />
 
           </label>
 
@@ -166,7 +183,7 @@ function App() {
             </div>
 
             <h2>
-              ${tip ? formatCurrency(tip * Number(bill)) : '0.00'}
+              ${tip ? formatCurrency(tip * Number(bill) / (people && Number(people) ? Number(people) : 1)) : '0.00'}
             </h2>
 
           </div>
@@ -186,12 +203,14 @@ function App() {
             </div>
 
             <h2>
-              $32.79
+              ${formatCurrency(Number(bill) * (1 + (tip ? tip : 0)) / (people && Number(people) ? Number(people) : 1))}
             </h2>
 
           </div>
 
-          <button>
+          <button
+            onClick={resetForm}
+          >
             RESET
           </button>
 
