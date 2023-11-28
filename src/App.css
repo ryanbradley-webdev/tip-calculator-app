@@ -134,6 +134,6 @@ input[type='radio'] {
   font-weight: bold;
   background-color: var(--clr-teal-600);
   border: none;
-  border-radius: 0;
+  border-radius: 5px;
   font-family: inherit;
 }
