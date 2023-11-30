@@ -3,19 +3,47 @@ main {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 41px;
+  gap: 88px;
   padding-top: 50px;
   min-height: 100vh;
   background-color: var(--clr-teal-900);
 }
 
+@media screen and (max-width: 480px) {
+  main {
+    gap: 41px;
+  }
+}
+
 section {
-  flex-grow: 1;
   width: 100%;
+  height: fit-content;
+  max-width: 921px;
   padding: 32px;
-  border-top-right-radius: 25px;
-  border-top-left-radius: 25px;
+  border-radius: 25px;
   background-color: var(--clr-white-900);
+}
+
+@media screen and (max-width: 480px) {
+  section {
+    flex-grow: 1;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  section {
+    max-width: 480px;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  section {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 48px;
+  }
 }
 
 .inputs {
@@ -60,6 +88,16 @@ label[for='people']::before {
 
 .options h4 {
   grid-column: 1 / span 2;
+}
+
+@media screen and (min-width: 769px) {
+  .options {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .options h4 {
+    grid-column: 1 / span 3;
+  }
 }
 
 input[type='text'],
@@ -110,10 +148,17 @@ input[type="number"] {
 }
 
 .totals {
+  position: relative;
   padding: 24px;
   padding-top: 37px;
   background-color: var(--clr-teal-100);
   border-radius: 15px;
+}
+
+@media screen and (min-width: 769px) {
+  .totals {
+    padding: 40px;
+  }
 }
 
 .totals > div {
@@ -156,4 +201,13 @@ input[type="number"] {
 
 .totals button:disabled {
   opacity: 0.2;
+}
+
+@media screen and (min-width: 769px) {
+  .totals button {
+    position: absolute;
+    left: 40px;
+    bottom: 40px;
+    width: calc(100% - 80px);
+  }
 }

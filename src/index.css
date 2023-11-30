@@ -22,3 +22,12 @@
 html {
   font-family: 'Space Mono', 'Arial', sans-serif;
 }
+
+button,
+label:has(input[type="radio"]) {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
