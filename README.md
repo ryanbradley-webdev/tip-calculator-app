@@ -1,27 +1,52 @@
-# React + TypeScript + Vite
+![Ryan Bradley Web Development](./documentation/web-dev-logo.svg)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Frontend Mentor - Tip calculator app solution
 
-Currently, two official plugins are available:
+This is a solution to the [Tip calculator app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/tip-calculator-app-ugJNGbJUX). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Table of contents
 
-## Expanding the ESLint configuration
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [Continued development](#continued-development)
+- [Author](#author)
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Overview
 
-- Configure the top-level `parserOptions` property like this:
+### The challenge
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
+Users should be able to:
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+- View the optimal layout for the app depending on their device's screen size
+- See hover states for all interactive elements on the page
+- Calculate the correct tip and total cost of the bill per person
+
+### Screenshot
+
+![Screenshot](./documentation/screenshot.png)
+
+### Links
+
+- Solution URL: [GitHub Repo](https://github.com/ryanbradley-webdev/tip-calculator-app)
+- Live Site URL: [Hosted on Netlify](https://tip-calculator-app-rbwd.netlify.app/)
+
+## My process
+
+### Built with
+
+- [React](https://reactjs.org/) - JS library
+- [TypeScript](https://www.typescriptlang.org/) - Type Safety
+- [Vite](https://vitejs.dev/) - Web bundling and scaffolding
+
+## Author
+
+![Ryan Bradley Web Development](./documentation//web-dev-logo.svg)
+
+- Visit my portfolio - [ryanbradleyportfolio.com](https://ryanbradleyportfolio.com)
+- Contact me for your next website - [ryanbradleywebdev.com](https://ryanbradleywebdev.com)
+- Email me - [ryan@ryanbradleywebdev.com](ryan@ryanbradleywebdev.com)
+- Follow my Instagram - [@ryanbradley_web_dev](https://www.instagram.com/ryanbradley_web_dev/)
