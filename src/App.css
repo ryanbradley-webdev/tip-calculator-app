@@ -141,7 +141,8 @@ input[type='radio'] {
   display: none;
 }
 
-label:has(input[type="radio"]):is(:hover, :focus) {
+label:has(input[type="radio"]):is(:hover, :focus),
+label:has(input[type="radio"]:is(:hover, :focus)) {
   color: var(--clr-teal-100);
   background-color: var(--clr-teal-800);
 }
@@ -149,6 +150,27 @@ label:has(input[type="radio"]):is(:hover, :focus) {
 label:has(#custom) {
   color: var(--clr-teal-500);
   background-color: var(--clr-white-700);
+}
+
+label:has(#custom_tip_value[data-show="true"]) span {
+  opacity: 0;
+}
+
+label:has(#custom_tip_value[data-show="true"])::before {
+  content: "%";
+  position: absolute;
+  left: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#custom_tip_value[data-show="false"] {
+  display: none;
+}
+
+#custom_tip_value {
+  position: absolute;
+  inset: 0;
 }
 
 .options > label {

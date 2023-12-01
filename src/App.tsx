@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import './App.css'
 
 function App() {
@@ -6,6 +6,8 @@ function App() {
   const [tip, setTip] = useState<number | undefined>()
   const [customTip, setCustomTip] = useState(false)
   const [people, setPeople] = useState<string>('')
+
+  const customTipRef = useRef<HTMLInputElement>(null)
 
   const inputIsNumber = (input: string) => {
     const digits = input.replace('.', '')
@@ -55,11 +57,15 @@ function App() {
         setBill(newBill)
       } else if (name === 'tip') {
         setTip(Number(value))
-        setCustomTip(false)
+        setCustomTip(id === 'custom_tip_value')
       } else if (name === 'people') {
         setPeople(Number(value) < 0 ? '' : removePrependedZeros(value))
       }
     }
+  }
+
+  const validateCustomTip = () => {
+    setCustomTip(!!tip)
   }
 
   const resetForm = () => {
@@ -68,6 +74,13 @@ function App() {
     setCustomTip(false)
     setPeople('')
   }
+
+  useEffect(() => {
+    if (customTip && customTipRef?.current) {
+      customTipRef.current.focus()
+      customTipRef.current.select()
+    }
+  }, [customTip])
 
   return (
     <main>
@@ -156,6 +169,17 @@ function App() {
 
               <input type="radio" name='tip' id='custom' checked={customTip} onChange={handleChange} />
 
+              <input
+                type="number"
+                name='tip'
+                id='custom_tip_value'
+                value={tip ? tip : ''}
+                onChange={handleChange}
+                onBlur={validateCustomTip}
+                ref={customTipRef}
+                data-show={customTip}
+              />
+
             </label>
 
           </div>
@@ -225,7 +249,7 @@ function App() {
           </div>
 
           <button
-            disabled={!bill && !tip && !customTip && !people}
+            disabled={!bill && !tip && !people}
             onClick={resetForm}
           >
             RESET
