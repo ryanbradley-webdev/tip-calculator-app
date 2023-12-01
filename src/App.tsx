@@ -166,7 +166,15 @@ function App() {
               Number of People
             </h4>
 
-            <input type="number" name="people" id="people" placeholder='0' value={people} onChange={handleChange} />
+            <input
+              type="number"
+              name="people"
+              id="people"
+              placeholder='0'
+              value={people}
+              onChange={handleChange}
+              aria-invalid={people === '0'}
+            />
 
           </label>
 

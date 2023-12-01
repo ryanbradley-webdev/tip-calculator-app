@@ -12,11 +12,13 @@
   --clr-white-900: #FFF;
   --clr-white-800: #F3F9FA;
   --clr-teal-900: #C5E4E7;
-  --clr-teal-800: #9EBBBD;
-  --clr-teal-700: #7F9D9F;
-  --clr-teal-600: #547878;
-  --clr-teal-500: #26C2AE;
+  --clr-teal-800: #9FE8DF;
+  --clr-teal-700: #9EBBBD;
+  --clr-teal-600: #7F9D9F;
+  --clr-teal-500: #547878;
+  --clr-teal-400: #26C2AE;
   --clr-teal-100: #00474B;
+  --clr-red-900: #E17457;
 }
 
 html {
@@ -24,7 +26,8 @@ html {
 }
 
 button,
-label:has(input[type="radio"]) {
+label,
+input {
   cursor: pointer;
 }
 
